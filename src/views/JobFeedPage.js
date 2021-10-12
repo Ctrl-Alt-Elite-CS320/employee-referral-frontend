@@ -14,27 +14,36 @@ function JobFeedPage() {
            </div>
            
          </div>
+         <div className="divider">
+
+         </div>
          <div className="feed-container">
            <div className="jobs-list col-50">
+             
              <div className="scroll-gradient"></div>
              
+             <JobItem />
+             <JobItem />
+             <JobItem />
+             <JobItem />
+             <JobItem />
              <br></br>
              <br></br>
              <br></br>
-             <JobItem />
-             <JobItem />
-             <JobItem />
-             <JobItem />
-             <JobItem/>
+             <br></br>
+             <br></br>
+             <br></br>
+             
            </div>
-           <div className="job-details col-50">
-
-           </div>
-           <div className="add-button">
-
+           <div className="job-details-container col-50">
+            <div className="job-details">
+              
             </div>
+           </div>
+           
          </div>
-         
+         <div className="add-button">
+         </div>
       </div>
       
     </div>
