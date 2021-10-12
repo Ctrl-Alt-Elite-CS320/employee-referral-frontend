@@ -58,7 +58,7 @@ $(function () {
             "height": "100%",
             "transform": "rotate(0deg)"
          })
-
+         
          setTimeout(function() {
             $(".overbox").css({
                "overflow": "initial"
@@ -66,18 +66,19 @@ $(function () {
          }, 600)
 
          $(this).animate({
-            "width": "140px",
-            "height": "140px"
+            "width": "100px",
+            "height": "100px"
          }, 500, function() {
             $(".box").removeClass("back");
-
+            $(".register-msg").fadeIn(300);
             $(this).removeClass('active')
          });
+
 
          $(".overbox .title").fadeOut(300);
          $(".overbox .input").fadeOut(300);
          $(".overbox .button").fadeOut(300);
-
+        
          $(".alt-2").addClass('material-buton');
       }
 
@@ -107,8 +108,9 @@ $(function () {
             $(".overbox .title").fadeIn(300);
             $(".overbox .input").fadeIn(300);
             $(".overbox .button").fadeIn(300);
+            
          }, 700)
-
+         $(".register-msg").fadeOut(300);
          $(this).removeClass('material-button');
 
       }

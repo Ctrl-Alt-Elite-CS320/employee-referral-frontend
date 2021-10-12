@@ -16,16 +16,19 @@
 }
 
 .App-header {
-  background-color: #ffffff;
-  height: 50px;
+  background-color: white;
+  height: 100px;
   display: flex;
-  width: 80%;
+  width: 100%;
 
   flex-direction: column;
-  align-items: center;
+  align-items: baseline;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: rgb(0, 0, 0);
+  padding-left: 100px;
+
+  color: rgb(42 162 131);
+  font-size: calc(20px + 2vmin);
+  font-weight: bold;
 }
 
 .App-link {
