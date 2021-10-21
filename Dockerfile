@@ -12,10 +12,10 @@ WORKDIR /srv/employee-referral-frontend
 COPY . .
 
 #Install the app
-RUN yarn install
+RUN npm install
 
 #Open port
 EXPOSE 3000
 
 #Command to run
-CMD [ "yarn", "start" ]
+CMD [ "npm", "start" ]
