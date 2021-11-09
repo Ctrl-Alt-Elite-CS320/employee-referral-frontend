@@ -1,9 +1,13 @@
 import "../styles/JobItem.css";
-
+import React, {useState} from "react"
 
 function JobItem() {
+  const [selected, setSelected] = useState(false);
   return (
-    <div className="job-item">
+    <div className={"job-item" + (selected ? " job-item-selected" : "")}
+      onClick={() => {
+        setSelected(true);
+      }}>
       <h2>Job Title</h2>
       <p>Lorem ipsum dolor sit amet consectetur adip
         Lorem ipsum dolor sit amet consectetur adip
@@ -12,7 +16,7 @@ function JobItem() {
         Lorem ipsum dolor sit amet consectetur adip
       </p>
       <br></br>
-      <div className="job-tags"><a>#Software-developer</a> <a>#Skilled</a></div>
+      <div className="job-tags"><a>#Software-developer</a>, <a>#Skilled</a></div>
       <br></br>
       <div className="job-posted-details">
         <div className="profile-button">

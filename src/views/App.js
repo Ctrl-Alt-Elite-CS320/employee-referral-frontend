@@ -1,85 +1,37 @@
-import logo from '../assets/logo.svg';
-import '../styles/App.css';
-import '../styles/login.css';
-import '../js/login.js';
+import Login from '../views/Login';
+import JobFeedPage from '../views/JobFeedPage';
+import React from 'react';
+
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
+import { useState } from 'react';
 /*
 Home Page
  */
 
 function App() {
+  const [token, setToken] = useState();
+  if (!token) {
+    return <Login setToken={setToken}/>
+  }
   return (
-    <div className="App">
-      <header className="App-header">
+    <React.StrictMode>
+      <Router>
+        <Switch>
         
-        Sinecure
-      </header>
-      
-      <div className="materialContainer">
-        <div className="box">
-          <form action="/jobsfeed">
-
-          <div className="title">LOGIN</div>
-
-          <div className="input">
-            <label for="name">Username</label>
-            <input type="text" name="name" id="name"></input>
-            <span className="spin"></span>
-          </div>
-
-          <div className="input">
-            <label for="pass">Password</label>
-            <input type="password" name="pass" id="pass"></input>
-            <span className="spin"></span>
-          </div>
-
-          <div className="button login">
-            <button type="submit" value="login"><span>GO</span> <i className="fa fa-check"></i></button>
-          </div>
-
-          <a href="" className="pass-forgot">Forgot your password?</a>
-
-          </form>
-        </div>
-
-        <div className="overbox">
-          <form action="/jobsfeed">
-          <div className="material-button alt-2"><span className="shape"></span></div>
-
-          <div className="title">REGISTER</div>
-
-          <div className="input">
-            <label for="regname">Username</label>
-            <input type="text" name="regname" id="regname"></input>
-            <span className="spin"></span>
-          </div>
-
-          <div className="input">
-            <label for="regpass">Password</label>
-            <input type="password" name="regpass" id="regpass"></input>
-            <span className="spin"></span>
-          </div>
-
-          <div className="input">
-            <label for="reregpass">Repeat Password</label>
-            <input type="password" name="reregpass" id="reregpass"></input>
-            <span className="spin"></span>
-          </div>
-
-          <div className="button">
-            <button type="submit" value="signup"><span>NEXT</span></button>
-          </div>
-          </form>
-        </div>
-        <div className="register-msg">
-          <p>
-            &lt;-- Register Here
-          </p>
-        </div>
-      </div>
-      </div>
-      
-      
-  );
+          <Route path="/jobsfeed">
+            <JobFeedPage />
+          </Route>
+          <Route path="/">
+            <App />
+          </Route>
+        </Switch>
+      </Router>
+    </React.StrictMode>);
 }
 
 export default App;

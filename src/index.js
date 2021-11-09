@@ -1,30 +1,11 @@
-import React from 'react';
 import ReactDOM from 'react-dom';
 import './styles/index.css';
 import App from './views/App';
-import JobFeedPage from './views/JobFeedPage';
 import reportWebVitals from './reportWebVitals';
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link
-} from "react-router-dom";
+
 
 ReactDOM.render(
-  <React.StrictMode>
-    <Router>
-    <Switch>
-      
-      <Route path="/jobsfeed">
-        <JobFeedPage />
-      </Route>
-      <Route path="/">
-        <App />
-      </Route>
-    </Switch>
-    </Router>
-  </React.StrictMode>,
+  <App/>,
   document.getElementById('root')
 );
 

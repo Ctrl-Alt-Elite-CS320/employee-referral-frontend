@@ -4,7 +4,7 @@ function JobFeedPage() {
    return (
     <div className="JobFeedPage">
       <div className="filter-container">
-         
+         <div style={{ backgroundColor: "black", width: "50px", height: "50px" }}></div>
       </div>
       <div className="main-content">
          <div className="feed-header">
@@ -14,19 +14,14 @@ function JobFeedPage() {
            </div>
            
          </div>
-         <div className="divider">
-
-         </div>
          <div className="feed-container">
            <div className="jobs-list col-50">
              
              <div className="scroll-gradient"></div>
+             {
+               [0, 1, 2, 3, 4, 5, 6, 7].map((x) => <JobItem id={x}/>)
+             }
              
-             <JobItem />
-             <JobItem />
-             <JobItem />
-             <JobItem />
-             <JobItem />
              <br></br>
              <br></br>
              <br></br>
