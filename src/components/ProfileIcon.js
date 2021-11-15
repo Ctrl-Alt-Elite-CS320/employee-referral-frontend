@@ -11,7 +11,7 @@ class ProfileIcon extends React.Component {
 
     render() {
         return(
-            <button className="circle" onClick={() => this.setState({value: 'OK'})}>
+            <button className="circle" title="ProfileIcon" onClick={() => this.setState({value: 'OK'})}>
                 {this.state.value}
             </button>
         );

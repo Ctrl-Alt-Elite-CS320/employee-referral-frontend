@@ -5,7 +5,7 @@ import "../styles/JobItem.css";
 class JobItem extends React.Component {
   render() {
     return (
-      <div className="job-item">
+      <div className="job-item" title="job-item-title">
         <h2>Job Title</h2><br />
         <p>Lorem ipsum dolor sit amet consectetur adip
           Lorem ipsum dolor sit amet consectetur adip

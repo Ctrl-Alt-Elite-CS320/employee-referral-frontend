@@ -11,7 +11,7 @@ class Logo extends React.Component {
 
     render() {
         return(
-            <button className="square" onClick={() => this.setState({value: 'Take Me Home!'})}>
+            <button className="squareButton" title="Logo" onClick={() => this.setState({value: 'Take Me Home!'})}>
                 {this.state.value}
             </button>
         );

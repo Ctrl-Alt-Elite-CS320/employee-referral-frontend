@@ -4,7 +4,7 @@ import '../styles/ReferCandidate.css';
 class ReferCandidate extends React.Component {
     render() {
         return (
-            <div className="refer">
+            <div className="refer" title="refer">
                 <div className="refer-header">
                     <div>
                         <h1>Refer a candidate for:</h1><br />
@@ -24,7 +24,7 @@ class ReferCandidate extends React.Component {
                                 placeholder="Why is this candidate a good fit for this role? (max. 500 characters)"
                                 cols="30"
                                 rows="10"
-                                maxlength="500"
+                                maxLength="500"
                             />
                             <br /><br />
                             <input className="submit-button" type="submit" value="Submit" />

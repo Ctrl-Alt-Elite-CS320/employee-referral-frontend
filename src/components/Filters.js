@@ -4,7 +4,7 @@ import '../styles/Filters.css';
 class Filter extends React.Component {
     render() {
         return (
-            <div>
+            <div title="job-filters">
                 <br /><h2>Job Filters</h2><br />
                 <h4>Salary</h4><br />
                 <div className="silder-container">
