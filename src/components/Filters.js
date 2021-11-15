@@ -7,12 +7,12 @@ class Filter extends React.Component {
             <div>
                 <br /><h2>Job Filters</h2><br />
                 <h4>Salary</h4><br />
-                <div className="silder-container">
+                <div className="slider-container">
                     <input className="slider" type="range" min="0" max="50" value="25" id="salaryRange" />
                     <p><span id="demo" /></p>
                 </div><br />
                 <h4>Experience</h4><br />
-                <div className="silder-container">
+                <div className="slider-container">
                     <input className="slider" type="range" min="0" max="50" value="25" id="experienceRange" />
                 </div><br />
                 <h4>Job type</h4><br />
