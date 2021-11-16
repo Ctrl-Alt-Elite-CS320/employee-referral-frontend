@@ -1,9 +1,10 @@
 import '../styles/Feed.css';
-import JobItem from '../components/JobItem.js';
 import Logo from '../components/Logo.js';
 import Filters from '../components/Filters';
 import ReferCandidate from '../components/ReferCandidate';
 import ProfileIcon from '../components/ProfileIcon';
+import Search from '../components/search/Search';
+import jobListings from '../data/jobListings';
 
 function JobFeedPage() {
   return (
@@ -27,32 +28,7 @@ function JobFeedPage() {
         </div>
         <div className="feed-container">
           <div className="jobs-list col-50">
-            <div>
-              <input className="search" type="search" placeholder="Search listings" />
-              <form>
-                <select className="list-sort">
-                  <option value="all">All Listings</option>
-                  <option value="mine">Only My Lisitngs</option>
-                  <option value="others">Other Listings</option>
-                </select>
-              </form>
-            </div>
-            <br /><br />
-
-            <div className="scroll-gradient"></div>
-
-            <JobItem />
-            <JobItem />
-            <JobItem />
-            <JobItem />
-            <JobItem />
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br>
-
+            <Search details={jobListings}/>
           </div>
           <div className="job-details-container col-50">
             <ReferCandidate />
