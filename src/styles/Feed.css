@@ -30,7 +30,7 @@
 .feed-header {
   height: 100px;
   width: 100%;
-  background-color: #111111;
+  background-color: black;
   display: flex;
   position: fixed;
   z-index: 1;
