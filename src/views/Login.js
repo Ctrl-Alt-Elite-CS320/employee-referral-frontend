@@ -12,7 +12,7 @@ function Login({ setToken, props}) {
   const handleLogin = (e) => {
     e.preventDefault();
     console.log("handleLogin");
-    axios.post('http://localhost:6500/api/auth/signin', {
+    axios.post('/api/auth/signin', {
         username: loginEmail,
         password: loginPass
     })

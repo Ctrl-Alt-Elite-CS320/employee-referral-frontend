@@ -1,6 +1,19 @@
 import '../styles/Feed.css';
 import JobItem from '../components/JobItem.js';
+import { useState, useEffect } from 'react';
+import axios from 'axios';
 function JobFeedPage() {
+  let [jobs, setJobs] = useState([]);
+  useEffect(function () {
+    axios.get('/positions/all', { params: { compId: 20021 } }).then(res => {
+    console.log(res.status);
+    if (res.data) {
+      console.log(res.data);
+      setJobs(res.data);
+    }
+
+  });
+  }, []);
    return (
     <div className="JobFeedPage">
       <div className="filter-container">
@@ -19,7 +32,7 @@ function JobFeedPage() {
              
              <div className="scroll-gradient"></div>
              {
-               [0, 1, 2, 3, 4, 5, 6, 7].map((x) => <JobItem id={x}/>)
+               jobs.map((x) => <JobItem data={x} key={x.id}/>)
              }
              
              <br></br>

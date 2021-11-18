@@ -2,7 +2,8 @@ import ReactDOM from 'react-dom';
 import './styles/index.css';
 import App from './views/App';
 import reportWebVitals from './reportWebVitals';
-
+import axios from 'axios';
+axios.defaults.baseURL = "http://localhost:6500";
 
 ReactDOM.render(
   <App/>,

@@ -16,7 +16,6 @@ Home Page
 
 function App() {
   const [token, setToken] = useState(sessionStorage.getItem('JWT'));
-
   if(!token) {
     return <Login setToken={setToken} />
   }
