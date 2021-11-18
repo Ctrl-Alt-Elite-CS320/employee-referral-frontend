@@ -1,0 +1,10 @@
+.square {
+    background: #ffaaaa;
+    border: 1px solid #ffabab;
+    border-radius: 75px;
+    height: 150px;
+    width: 250px;
+    font-weight: bold;
+    font-size: 35px;
+    cursor: pointer;
+}

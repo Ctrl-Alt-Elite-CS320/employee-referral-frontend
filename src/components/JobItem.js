@@ -1,3 +1,4 @@
+import React from "react";
 import "../styles/JobItem.css";
 import React, {useState} from "react"
 
@@ -16,24 +17,20 @@ function JobItem({data}) {
       <div className="job-posted-details">
         <div className="profile-button">
           <div className="profile-photo">
-          
+
             <img></img>
-            
+
           </div>
-          &nbsp;
-          John Doe
-          
-        </div>
-        
 
         <div className="owner-info">
-          
+
           Posted on {data.dateposted}
           </div>
         </div>
-      
-    </div>
-  );
+
+      </div>
+    );
+  }
 }
 
 export default JobItem;
