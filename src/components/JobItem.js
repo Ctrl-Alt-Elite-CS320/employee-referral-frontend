@@ -1,4 +1,3 @@
-import React from "react";
 import "../styles/JobItem.css";
 import React, {useState} from "react"
 
@@ -29,8 +28,10 @@ function JobItem({data}) {
         </div>
 
       </div>
+    </div>
+
     );
-  }
+
 }
 
 export default JobItem;

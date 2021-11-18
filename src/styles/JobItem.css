@@ -10,7 +10,8 @@
 }
 .job-item h2 {
   border-left: 5px solid rebeccapurple;
-  padding-left: 10px;
+  padding: 10px;
+  margin-bottom: 10px;
 }
 .job-item:hover {
   transform: translateX(10px);
@@ -19,17 +20,6 @@
 .job-item-selected {
   border-right: 20px solid rebeccapurple;
 }
-
-.job-item:hover {
-  border-radius: 10px;
-  background: #efefef;
-}
-
-.job-item h2 {
-  font-size: 30px;
-  color: #000000;
-}
-
 .job-item p {
   color: white;
 }
