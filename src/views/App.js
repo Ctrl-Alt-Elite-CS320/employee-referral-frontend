@@ -4,32 +4,30 @@ import React from 'react';
 
 import {
   BrowserRouter as Router,
-  Switch,
+  Routes,
   Route,
-  Link
+  Navigate
 } from "react-router-dom";
+import {  } from "react-router";
 import { useState } from 'react';
 /*
 Home Page
  */
 
 function App() {
-  const [token, setToken] = useState();
-  if (!token) {
-    return <Login setToken={setToken}/>
+  const [token, setToken] = useState(sessionStorage.getItem('JWT'));
+
+  if(!token) {
+    return <Login setToken={setToken} />
   }
   return (
     <React.StrictMode>
       <Router>
-        <Switch>
+        <Routes>
         
-          <Route path="/jobsfeed">
-            <JobFeedPage />
-          </Route>
-          <Route path="/">
-            <App />
-          </Route>
-        </Switch>
+          <Route exact path="/" element={<JobFeedPage />}/>
+          <Route path="/login" element={<Login setToken={setToken} />}/>
+        </Routes>
       </Router>
     </React.StrictMode>);
 }

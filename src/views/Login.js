@@ -5,19 +5,39 @@ import '../styles/App.css';
 import PropTypes from 'prop-types';
 import { useState } from 'react';
 import axios from "axios";
-function Login({ setToken }) {
+function Login({ setToken, props}) {
   const [loginEmail,setLoginEmail] = useState('');
   const [loginPass,setLoginPass] = useState('');
   // const json = JSON.stringify(data, null, 4);
   const handleLogin = (e) => {
     e.preventDefault();
     console.log("handleLogin");
-    axios.post('localhost:6500/api/auth/signin', {
+    axios.post('http://localhost:6500/api/auth/signin', {
         username: loginEmail,
         password: loginPass
-      })
+    })
       .then(function (response) {
-        alert(response);
+    //     {
+    //   id
+    //   username
+    //   roles[]
+    //   accessToken
+    //    }
+        let user = response.data;
+        let token = user.accessToken;
+        sessionStorage.setItem('JWT', token);
+
+        if (token === null) {
+          console.log("No access token");
+          axios.defaults.headers.common.Authorization = null;
+        } else {
+          console.log(token);
+          axios.defaults.headers.common.Authorization = `Bearer ${token}`;
+        }
+        
+        setToken(token);
+        // alert(user.accessToken);
+        // props.history.push("/");
       })
       .catch(function (error) {
         alert(error);
