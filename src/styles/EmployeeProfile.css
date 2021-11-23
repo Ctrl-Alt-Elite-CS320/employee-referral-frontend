@@ -1,0 +1,164 @@
+.EmployeeProfile {
+    display: absolute;
+    width: 100vw;
+    height: 100vh;
+    background-color: #ffffff;
+}
+
+.rect1 {
+    position: absolute;
+    left: 9%;
+    right: 89%;
+    top: 12%;
+    bottom: 83%;
+    background: #d8d8d8;
+    box-shadow: inset 0px 4px 10px rgba(0, 0, 0, 0.25);
+    border-radius: 4px;
+}
+.email {
+    position: absolute;
+    left: 12%;
+    top: 9%;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 28px;
+    color: #000000;
+}
+
+.rect2 {
+    position: absolute;
+    left: 9%;
+    right: 89%;
+    top: 24%;
+    bottom: 71%;
+    background: #d8d8d8;
+    box-shadow: inset 0px 4px 10px rgba(0, 0, 0, 0.25);
+    border-radius: 4px;
+}
+.employee-id {
+    position: absolute;
+    left: 12%;
+    top: 21%;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 28px;
+    color: #000000;
+}
+
+.rect3 {
+    position: absolute;
+    left: 9%;
+    right: 89%;
+    top: 36%;
+    bottom: 59%;
+    background: #d8d8d8;
+    box-shadow: inset 0px 4px 10px rgba(0, 0, 0, 0.25);
+    border-radius: 4px;
+}
+.change-password {
+    position: absolute;
+    left: 12%;
+    top: 33%;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 28px;
+    color: #000000;
+}
+
+.rect4 {
+    position: absolute;
+    left: 9%;
+    right: 89%;
+    top: 48%;
+    bottom: 47%;
+    background: #d8d8d8;
+    box-shadow: inset 0px 4px 10px rgba(0, 0, 0, 0.25);
+    border-radius: 4px;
+}
+.department {
+    position: absolute;
+    left: 12%;
+    top: 45%;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 28px;
+    color: #000000;
+}
+
+.rect5 {
+    position: absolute;
+    left: 9%;
+    right: 89%;
+    top: 60%;
+    bottom: 35%;
+    background: #d8d8d8;
+    box-shadow: inset 0px 4px 10px rgba(0, 0, 0, 0.25);
+    border-radius: 4px;
+}
+.manager {
+    position: absolute;
+    left: 12%;
+    top: 57%;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 28px;
+    color: #000000;
+}
+
+.rect6 {
+    position: absolute;
+    left: 9%;
+    right: 89%;
+    top: 72%;
+    bottom: 23%;
+    background: #d8d8d8;
+    box-shadow: inset 0px 4px 10px rgba(0, 0, 0, 0.25);
+    border-radius: 4px;
+}
+.years {
+    position: absolute;
+    left: 12%;
+    top: 69%;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 28px;
+    color: #000000;
+}
+
+.rect7 {
+    position: absolute;
+    left: 9%;
+    right: 89%;
+    top: 84%;
+    bottom: 11%;
+    background: #d8d8d8;
+    box-shadow: inset 0px 4px 10px rgba(0, 0, 0, 0.25);
+    border-radius: 4px;
+}
+.referrals-made {
+    position: absolute;
+    left: 12%;
+    top: 81%;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 28px;
+    color: #000000;
+}
+
+.big-rect {
+    position: absolute;
+    left: 20%;
+    right: 20%;
+    top: 30%;
+    bottom: 20%;
+    background: #ffffff;
+    box-shadow: inset 0px 4px 10px rgba(0, 0, 0, 0.25);
+    border-radius: 50px;
+}
