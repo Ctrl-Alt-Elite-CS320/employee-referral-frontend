@@ -3,7 +3,7 @@ import "../styles/ListingForm.css";
 const axios = require("axios");
 
 class ListingForm extends React.Component {
-  state = { name: "", yearSalary: 0, minExp: 0, description: "" };
+  state = { name: "", yearSalary: 0, minExp: 0, description: "", tags: [] };
   handleChangename = (event) => {
     this.setState({ name: event.target.value });
   };
@@ -15,10 +15,14 @@ class ListingForm extends React.Component {
   };
   handleDesc = (event) => {
     this.setState({ description: event.target.value });
-    // console.log(this.state);
+  };
+  handleTags = (event) => {
+    this.setState({ tags: event.target.value });
   };
   handleSubmit = () => {
-    axios.post("localhost", this.state).then(function (response) {
+    const address = `http://localhost:4000/positions/new`;
+    //change address as per our needs
+    axios.post(address, this.state).then(function (response) {
       console.log(response);
     });
   };
@@ -96,7 +100,7 @@ class ListingForm extends React.Component {
           <br />
           <input
             className="post-button"
-            type="submit"
+            // type="submit"
             value="Post"
             onClick={() => this.handleSubmit()}
           />

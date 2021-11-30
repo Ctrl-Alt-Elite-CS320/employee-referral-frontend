@@ -6,24 +6,28 @@ import Filters from "../components/Filters";
 import ReferCandidate from "../components/ReferCandidate";
 import ProfileIcon from "../components/ProfileIcon";
 import axios from "axios";
-
+const c = [
+  { name: "yo", Description: "ram ram" },
+  { name: "yo", Description: "ram2 ram3" },
+  { name: "yo", Description: "ram2 ram3" },
+];
 function JobFeedPage() {
-  const [c, setC] = useState([]);
-  useEffect(() => {
-    async function fetchData() {
-      try {
-        const { data: yo } = await axios.get("http://localhost:4000/jobs/");
-        return yo;
-      } catch (error) {
-        console.log(error);
-      }
-    }
-    // Update the document title using the browser API
-    fetchData().then((val) => {
-      setC(val);
-    });
-    window.scrollTo(0, 0);
-  });
+  // const [c, setC] = useState([]);
+  // useEffect(() => {
+  //   async function fetchData() {
+  //     try {
+  //       const { data: yo } = await axios.get("http://localhost:4000/jobs/");
+  //       return yo;
+  //     } catch (error) {
+  //       console.log(error);
+  //     }
+  //   }
+  //   // Update the document title using the browser API
+  //   fetchData().then((val) => {
+  //     setC(val);
+  //   });
+  //   window.scrollTo(0, 0);
+  // });
   return (
     <div className="JobFeedPage">
       <div className="filter-container">
