@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import './styles/index.css';
 import App from './views/App';
 import JobFeedPage from './views/JobFeedPage';
+import NewPosition from './views/NewPosition';
 import reportWebVitals from './reportWebVitals';
 import {
   BrowserRouter as Router,
@@ -18,6 +19,9 @@ ReactDOM.render(
       
       <Route path="/jobsfeed">
         <JobFeedPage />
+      </Route>
+      <Route path="/newposition">
+        <NewPosition />
       </Route>
       <Route path="/">
         <App />
