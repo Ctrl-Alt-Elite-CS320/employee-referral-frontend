@@ -1,6 +1,6 @@
 import React from "react";
 import '../styles/ProfileIcon.css';
-
+import axios from "axios";
 class ProfileIcon extends React.Component {
     constructor(props) {
         super(props);
@@ -11,7 +11,13 @@ class ProfileIcon extends React.Component {
 
     render() {
         return(
-            <button className="circle" onClick={() => this.setState({value: 'OK'})}>
+            <button className="circle" onClick={() => {
+                
+                sessionStorage.setItem('JWT', null);
+                axios.defaults.headers.common.Authorization = null;
+                this.props.setToken(null);
+            }
+            }>
                 {this.state.value}
             </button>
         );

@@ -16,7 +16,7 @@ Home Page
 
 function App() {
   const [token, setToken] = useState(sessionStorage.getItem('JWT'));
-  if(!token) {
+  if(token == null) {
     return <Login setToken={setToken} />
   }
   return (
@@ -24,8 +24,8 @@ function App() {
       <Router>
         <Routes>
         
-          <Route exact path="/" element={<JobFeedPage />}/>
-          <Route path="/login" element={<Login setToken={setToken} />}/>
+          <Route exact path="/" element={<JobFeedPage setToken={setToken}/>}/>
+          {/* <Route path="/login" element={<Login setToken={setToken} />}/> */}
         </Routes>
       </Router>
     </React.StrictMode>);

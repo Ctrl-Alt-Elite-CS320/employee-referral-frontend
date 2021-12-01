@@ -26,7 +26,6 @@ function Login({ setToken, props}) {
         let user = response.data;
         let token = user.accessToken;
         sessionStorage.setItem('JWT', token);
-
         if (token === null) {
           console.log("No access token");
           axios.defaults.headers.common.Authorization = null;
@@ -34,7 +33,6 @@ function Login({ setToken, props}) {
           console.log(token);
           axios.defaults.headers.common.Authorization = `Bearer ${token}`;
         }
-        
         setToken(token);
         // alert(user.accessToken);
         // props.history.push("/");

@@ -6,8 +6,8 @@ import Logo from '../components/Logo.js';
 import Filters from '../components/Filters';
 import ReferCandidate from '../components/ReferCandidate';
 import ProfileIcon from '../components/ProfileIcon';
-
-function JobFeedPage() {
+import { Button } from "react-bootstrap";
+function JobFeedPage({ setToken }) {
   let [jobs, setJobs] = useState([]);
   useEffect(function () {
     axios.get('/positions/all', { params: { compId: 20021 } }).then(res => {
@@ -19,7 +19,11 @@ function JobFeedPage() {
 
   });
   }, []);
-
+  const logout = () => {
+    sessionStorage.setItem('JWT', null);
+    axios.defaults.headers.common.Authorization = null;
+    setToken(null);
+  };
 
    return (
      <div className="JobFeedPage">
@@ -41,8 +45,9 @@ function JobFeedPage() {
             </select>
           </form>
         </div>
-        <div className="col-20">
-          <ProfileIcon />
+         <div className="col-20">
+           <Button onClick={logout}>Logout</Button>
+          <ProfileIcon setToken={setToken}/>
         </div>
       </div>
       <div className="filter-container">
