@@ -1,43 +1,37 @@
-import React from "react";
 import "../styles/JobItem.css";
+import React, {useState} from "react"
 
+function JobItem({data}) {
+  const [selected, setSelected] = useState(false);
+  return (
+    <div className={"job-item" + (selected ? " job-item-selected" : "")}
+      onClick={() => {
+        setSelected(true);
+      }}>
+      <h2>{data.title}</h2>
+      <p>{data.description}</p>
+      <br></br>
+      <div className="job-tags"><a>#Software-developer</a>, <a>#Skilled</a></div>
+      <br></br>
+      <div className="job-posted-details">
+        <div className="profile-button">
+          <div className="profile-photo">
 
-class JobItem extends React.Component {
-  render() {
-    return (
-      <div className="job-item">
-        <h2>Job Title</h2><br />
-        <p>Lorem ipsum dolor sit amet consectetur adip
-          Lorem ipsum dolor sit amet consectetur adip
-          Lorem ipsum dolor sit amet consectetur adip
-          Lorem ipsum dolor sit amet consectetur adip
-          Lorem ipsum dolor sit amet consectetur adip
-        </p>
-        <br></br>
-        <div className="job-tags"><a>#Software-developer</a> <a>#Skilled</a></div>
-        <br></br>
-        <div className="job-posted-details">
-          <div className="profile-button">
-            <div className="profile-photo">
-
-              <img></img>
-
-            </div>
-            &nbsp;
-            John Doe
+            <img></img>
 
           </div>
 
+        <div className="owner-info">
 
-          <div className="owner-info">
-
-            Posted on 9/19/2021
+          Posted on {data.dateposted}
           </div>
         </div>
 
       </div>
+    </div>
+
     );
-  }
+
 }
 
 export default JobItem;
