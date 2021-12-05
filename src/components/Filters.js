@@ -1,5 +1,9 @@
 import React from "react";
 import '../styles/Filters.css';
+import 'Sliders.js'
+
+
+// figure out how to incorporate the functional slider components in here
 
 class Filter extends React.Component {
     render() {
