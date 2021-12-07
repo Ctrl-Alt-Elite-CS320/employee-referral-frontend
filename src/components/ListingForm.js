@@ -1,7 +1,9 @@
 import React from "react";
 import '../styles/ListingForm.css';
+import TagInput from './TagInput';
 
 class ListingForm extends React.Component {
+
     render() {
         return (
             <div className="listing">
@@ -31,7 +33,9 @@ class ListingForm extends React.Component {
                         cols="30"
                         rows="10"
                         maxLength="500"
-                    />
+                    />      
+                    <br />
+                    <TagInput />
                     <br /><br />
                     <input className="post-button" type="submit" value="Post" />
                 </form>
