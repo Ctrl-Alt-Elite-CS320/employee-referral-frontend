@@ -92,28 +92,6 @@ class ListingForm extends React.Component {
               />
             </div>
           </div>
-          {/* <div className="slider-container">
-            <div className="col-50">
-              <input
-                className="slider"
-                type="range"
-                min="0"
-                max="50"
-                value="25"
-                id="SalarySlider"
-              />
-            </div>
-            <div className="col-50">
-              <input
-                className="slider"
-                type="range"
-                min="0"
-                max="50"
-                value="25"
-                id="ExpSlider"
-              />
-            </div>
-          </div> */}
           <textarea
             className="paragraph-text"
             placeholder="Job Description"
@@ -132,6 +110,7 @@ class ListingForm extends React.Component {
             className="post-button"
             // type="submit"
             value="Post"
+            readOnly="true"
             onClick={() => this.handleSubmit()}
           />
         </form>
