@@ -3,15 +3,23 @@ import "../styles/ListingForm.css";
 const axios = require("axios");
 
 class ListingForm extends React.Component {
-  state = { name: "", yearSalary: 0, minExp: 0, description: "", tags: [] };
+  state = {
+    title: "",
+    salary: 0,
+    minYearsExperience: 0,
+    description: "",
+    tags: [],
+    empId: null,
+    companyId: null,
+  };
   handleChangename = (event) => {
-    this.setState({ name: event.target.value });
+    this.setState({ title: event.target.value });
   };
   handleChangeYearlySalary = (event) => {
-    this.setState({ yearSalary: event.target.value });
+    this.setState({ salary: event.target.value });
   };
   handleMinExp = (event) => {
-    this.setState({ minExp: event.target.value });
+    this.setState({ minYearsExperience: event.target.value });
   };
   handleDesc = (event) => {
     this.setState({ description: event.target.value });
