@@ -11,9 +11,9 @@ class Filter extends React.Component {
         return (
             <div>
                 <br /><h2>Job Filters</h2><br />
-                <h4>Salary</h4><br />
-                <SalarySlider />
-                <h4>Experience</h4><br />
+                <h4>Salary (K)</h4><br />
+                <SalarySlider  />
+                <h4>Experience (Years)</h4><br />
                 <YearSlider />
                 <h4>Job type</h4><br />
                 <form>
