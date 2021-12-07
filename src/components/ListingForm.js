@@ -1,6 +1,18 @@
 import React from "react";
 import "../styles/ListingForm.css";
+import ReactTagInput from "@pathofdev/react-tag-input";
+import "@pathofdev/react-tag-input/build/index.css";
 const axios = require("axios");
+
+function App() {
+    const [tags, setTags] = React.useState(["example tag"])
+    return (
+      <ReactTagInput 
+        tags={tags} 
+        onChange={(newTags) => setTags(newTags)}
+      />
+    )
+  }
 
 class ListingForm extends React.Component {
   state = {
@@ -105,6 +117,7 @@ class ListingForm extends React.Component {
             onChange={this.handleDesc}
           />
           <br />
+          <App/>
           <br />
           <input
             className="post-button"
