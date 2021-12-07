@@ -16,7 +16,7 @@ class ListingForm extends React.Component {
     minYearsExperience: 0,
     description: "",
     tags: [],
-    empId: null,
+    empId: null,//get these from session information
     companyId: null,
   };
   handleChangename = (event) => {
@@ -68,7 +68,7 @@ class ListingForm extends React.Component {
           <br />
           <div className="textbox-container">
             <div className="col-50">
-              <label for="salary">Yearly Salary:</label>
+              <label htmlFor="salary">Yearly Salary:</label>
               <input
                 className="entry-info"
                 id="salary"
@@ -80,7 +80,7 @@ class ListingForm extends React.Component {
               />
             </div>
             <div className="col-50">
-              <label for="exp">Minimum years of Exp:</label>
+              <label htmlFor="exp">Minimum years of Exp:</label>
               <input
                 className="entry-info"
                 id="exp"
