@@ -1,6 +1,13 @@
 import React from "react";
 import "../styles/ListingForm.css";
+import ReactTagInput from "@pathofdev/react-tag-input";
+import "@pathofdev/react-tag-input/build/index.css";
 const axios = require("axios");
+
+// function App() {
+//   const [tags, setTags] = React.useState(["example tag"]);
+//   return <ReactTagInput tags={tags} onChange={(newTags) => setTags(newTags)} />;
+// }
 
 class ListingForm extends React.Component {
   state = {
@@ -24,15 +31,26 @@ class ListingForm extends React.Component {
   handleDesc = (event) => {
     this.setState({ description: event.target.value });
   };
-  handleTags = (event) => {
-    this.setState({ tags: event.target.value });
+
+  setTags = (newTags) => {
+    this.setState({ tags: newTags });
   };
+  // handleTags = (event) => {
+  //   const string = event.target.value;
+  //   let ans = string.split(",");
+  //   this.setState({ tags: ans });
+  // };
   handleSubmit = () => {
     const address = `http://localhost:4000/positions/new`;
     //change address as per our needs
-    axios.post(address, this.state).then(function (response) {
-      console.log(response);
-    });
+    console.log(this.state);
+    try {
+      axios.post(address, this.state).then(function (response) {
+        console.log(response);
+      });
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   render() {
@@ -74,7 +92,7 @@ class ListingForm extends React.Component {
               />
             </div>
           </div>
-          <div className="slider-container">
+          {/* <div className="slider-container">
             <div className="col-50">
               <input
                 className="slider"
@@ -95,7 +113,7 @@ class ListingForm extends React.Component {
                 id="ExpSlider"
               />
             </div>
-          </div>
+          </div> */}
           <textarea
             className="paragraph-text"
             placeholder="Job Description"
@@ -105,6 +123,10 @@ class ListingForm extends React.Component {
             onChange={this.handleDesc}
           />
           <br />
+          <ReactTagInput
+            tags={this.state.tags}
+            onChange={(newTags) => this.setTags(newTags)}
+          />
           <br />
           <input
             className="post-button"
