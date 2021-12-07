@@ -1,6 +1,17 @@
 import React from "react";
 import '../styles/ListingForm.css';
-import TagInput from './TagInput';
+import ReactTagInput from "@pathofdev/react-tag-input";
+import "@pathofdev/react-tag-input/build/index.css";
+
+function App() {
+    const [tags, setTags] = React.useState(["example tag"])
+    return (
+      <ReactTagInput 
+        tags={tags} 
+        onChange={(newTags) => setTags(newTags)}
+      />
+    )
+  }
 
 class ListingForm extends React.Component {
 
@@ -35,7 +46,7 @@ class ListingForm extends React.Component {
                         maxLength="500"
                     />      
                     <br />
-                    <TagInput />
+                    <App />
                     <br /><br />
                     <input className="post-button" type="submit" value="Post" />
                 </form>
