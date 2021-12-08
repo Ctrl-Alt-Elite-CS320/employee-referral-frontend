@@ -1,7 +1,7 @@
 import React from "react";
 import "../styles/ListingForm.css";
-import ReactTagInput from "@pathofdev/react-tag-input";
-import "@pathofdev/react-tag-input/build/index.css";
+import ReactTagInput from "react-tag-input";
+import "react-tag-input/build/index.css";
 const axios = require("axios");
 
 // function App() {

@@ -7,7 +7,7 @@ import NewPosition from './views/NewPosition';
 import reportWebVitals from './reportWebVitals';
 import {
   BrowserRouter as Router,
-  Switch,
+  Routes,
   Route,
   Link
 } from "react-router-dom";
@@ -15,7 +15,7 @@ import {
 ReactDOM.render(
   <React.StrictMode>
     <Router>
-    <Switch>
+    <Routes>
       
       <Route path="/positions/all">
         <JobFeedPage />
@@ -26,7 +26,7 @@ ReactDOM.render(
       <Route path="/">
         <App />
       </Route>
-    </Switch>
+    </Routes>
     </Router>
   </React.StrictMode>,
   document.getElementById('root')

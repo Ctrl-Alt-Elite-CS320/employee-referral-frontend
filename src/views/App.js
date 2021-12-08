@@ -4,7 +4,7 @@ import React from 'react';
 
 import {
   BrowserRouter as Router,
-  Switch,
+  Routes,
   Route,
   Navigate
 } from "react-router-dom";
@@ -22,11 +22,11 @@ function App() {
   return (
     <React.StrictMode>
       <Router>
-        <Switch>
+        <Routes>
         
           <Route exact path="/" element={<JobFeedPage setToken={setToken}/>}/>
           {/* <Route path="/login" element={<Login setToken={setToken} />}/> */}
-        </Switch>
+        </Routes>
       </Router>
     </React.StrictMode>);
 }
