@@ -4,19 +4,15 @@ import axios from "axios";
 class ProfileIcon extends React.Component {
     constructor(props) {
         super(props);
+        console.log("USer:" + props.userInfo);
         this.state = {
-            value: 'JD',
+            value: props.userInfo.username?.split(' ').reduce((acc, e) => acc + e[0], "")
         }
     }
 
     render() {
         return(
-            <button className="circle" onClick={() => {
-                
-                sessionStorage.setItem('JWT', null);
-                axios.defaults.headers.common.Authorization = null;
-                this.props.setToken(null);
-            }
+            <button className="circle" onClick={() => { }
             }>
                 {this.state.value}
             </button>

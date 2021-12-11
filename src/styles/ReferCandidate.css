@@ -23,12 +23,19 @@
 }
 
 .info-text {
-  width: 80%;
+  width: 60%;
   padding: 12px 20px;
   /* margin: 8px 0; */
   /* border: 1px solid #999999; */
   border-radius: 6px;
   box-sizing: border-box;
+}
+.name-input {
+  width: 40%;
+  border-radius: 6px;
+  padding: 12px 20px;
+  box-sizing: border-box;
+  margin-right: 10px;
 }
 
 .paragraph-text {
