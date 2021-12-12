@@ -17,8 +17,7 @@ const ReferCandidate = ({job, setLoading})=> {
         // console.log(first);
         axios.defaults.headers.common.Authorization = `Bearer ${localStorage.getItem('JWT')}`;
 
-        axios.post('/positions/applications/new', {
-            positionId: job.id,
+        axios.post('/positions/'+job.id+'/applications/new', {
             candidateFirstname: first,
             candidateLastname: last,
             candidateEmail: email,

@@ -13,8 +13,18 @@ function JobFeedPage({ setToken}) {
   const [jobs, setJobs] = useState([]);
   const [selectedJob, setSelectedJob] = useState(0);
   const [loading, setLoading] = useState(false);
+  const [user, setUser] = useState({});
+
   useEffect(function () {
     
+    axios.defaults.headers.common.Authorization = `Bearer ${localStorage.getItem('JWT')}`;
+    axios.get('/users/me').then(res => {
+      console.log("GOT ME:");
+      console.log(res.status);
+      console.log(res.data);
+    }).catch(err => {
+      console.log(err.message);
+    })
     axios.get('/positions/all', { params: { compId: 20021 } }).then(res => {
       console.log(res.status);
       if (res.data) {
@@ -22,7 +32,6 @@ function JobFeedPage({ setToken}) {
         setJobs(res.data);
         setSelectedJob(res.data[0].id);
       }
-
     });
   }, []);
   // useEffect(function () {
