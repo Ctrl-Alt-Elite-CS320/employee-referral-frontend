@@ -53,10 +53,29 @@ function JobFeedPage({ setToken}) {
     setToken(null);
   };
 
-  return (
-    <div className="JobFeedPage">
-      <div className="feed-header">
-        <div className="col-200px">
+  var isManager = true
+  let rightComponent = <ReferCandidate />
+  if(isManager){
+    let [referrals, setReferrals] = useState([]);
+    useEffect(function () {
+      axios.get('/positions/1/applications/all').then(res => {
+      console.log(res.status);
+      if (res.data) {
+        console.log(res.data);
+        setReferrals(res.data);
+      }
+  
+    });
+    }, []);
+    rightComponent = referrals.map( (x) => <ReferralItem data={x}/>);
+  }
+
+
+
+   return (
+     <div className="JobFeedPage">
+       <div className="feed-header">
+         <div className="col-200px">
           <Logo />
         </div>
         <div className="col-200px">
