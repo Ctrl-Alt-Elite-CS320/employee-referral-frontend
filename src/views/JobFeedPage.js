@@ -13,7 +13,15 @@ function JobFeedPage({ setToken}) {
   const [jobs, setJobs] = useState([]);
   const [selectedJob, setSelectedJob] = useState(0);
   const [loading, setLoading] = useState(false);
-  const [user, setUser] = useState({firstname:'',lastname:'', companyid: -1, employeeid: -1, email:''});
+  const [user, setUser] = useState({
+    firstname: '',
+    lastname: '',
+    companyid: -1,
+    employeeid: -1,
+    email: '',
+    ismanager: 1,
+    positiontitle: '',
+    startdate: ''});
 
   useEffect(function () {
     
@@ -21,6 +29,7 @@ function JobFeedPage({ setToken}) {
     axios.get('/users/me').then(res => {
       if (res.status == 200) {
         console.log("GOT ME:");
+        console.log(res.data);
         setUser(res.data);
       }
       return res.data;
