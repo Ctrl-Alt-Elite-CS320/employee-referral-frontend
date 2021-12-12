@@ -1,35 +1,25 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './styles/index.css';
-import App from './views/App';
-import JobFeedPage from './views/JobFeedPage';
-import NewPosition from './views/NewPosition';
-import reportWebVitals from './reportWebVitals';
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link
-} from "react-router-dom";
+import React from "react";
+import ReactDOM from "react-dom";
+import "./styles/index.css";
+import App from "./views/App";
+import JobFeedPage from "./views/JobFeedPage";
+import NewPosition from "./views/NewPosition";
+import reportWebVitals from "./reportWebVitals";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 
 ReactDOM.render(
   <React.StrictMode>
     <Router>
-    <Switch>
-      
-      <Route path="/jobsfeed">
-        <JobFeedPage />
-      </Route>
-      <Route path="/newposition">
-        <NewPosition />
-      </Route>
-      <Route path="/">
-        <App />
-      </Route>
-    </Switch>
+      <Routes>
+        <Route path="/jobsfeed" element={<JobFeedPage />} />
+
+        <Route path="/newposition" element={<NewPosition />} />
+
+        <Route path="/" element={<App />} />
+      </Routes>
     </Router>
   </React.StrictMode>,
-  document.getElementById('root')
+  document.getElementById("root")
 );
 
 // If you want to start measuring performance in your app, pass a function
