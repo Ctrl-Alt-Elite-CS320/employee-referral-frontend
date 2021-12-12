@@ -4,33 +4,42 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import Logo from '../components/Logo.js';
 import Filters from '../components/Filters';
+import Loading from '../components/Loading';
 import ReferCandidate from '../components/ReferCandidate';
-import ProfileIcon from '../components/ProfileIcon';
-import { Button } from "react-bootstrap";
-function JobFeedPage({ setToken }) {
-  let [jobs, setJobs] = useState([]);
-  useEffect(function () {
-    axios.get('/positions/all', { params: { compId: 20021 } }).then(res => {
-    console.log(res.status);
-    if (res.data) {
-      console.log(res.data);
-      setJobs(res.data);
-    }
+import { Button, Image} from "react-bootstrap";
 
-  });
+import '../styles/ProfileIcon.css';
+function JobFeedPage({ setToken}) {
+  const [jobs, setJobs] = useState([]);
+  const [selectedJob, setSelectedJob] = useState(0);
+  const [loading, setLoading] = useState(false);
+  useEffect(function () {
+    
+    axios.get('/positions/all', { params: { compId: 20021 } }).then(res => {
+      console.log(res.status);
+      if (res.data) {
+        console.log(res.data);
+        setJobs(res.data);
+        setSelectedJob(res.data[0].id);
+      }
+
+    });
   }, []);
+  // useEffect(function () {
+
+  // }, selectedJob);
   const logout = () => {
-    sessionStorage.setItem('JWT', null);
+    localStorage.setItem('JWT', null);
     axios.defaults.headers.common.Authorization = null;
     setToken(null);
   };
 
-   return (
-     <div className="JobFeedPage">
-       <div className="feed-header">
-         <div className="col-200px">
+  return (
+    <div className="JobFeedPage">
+      <div className="feed-header">
+        <div className="col-200px">
           <Logo />
-         </div>
+        </div>
         <div className="col-200px">
           <h1>Job Feed</h1>
           <h3>Manager</h3>
@@ -45,24 +54,27 @@ function JobFeedPage({ setToken }) {
             </select>
           </form>
         </div>
-         <div className="col-20">
-           <Button onClick={logout}>Logout</Button>
-          <ProfileIcon setToken={setToken}/>
+        <div className="col-20">
+          <Button onClick={logout}>Logout</Button>
+          <button className="circle" onClick={() => { }
+            }>
+            JD
+          </button>
         </div>
       </div>
       <div className="filter-container">
-         <br></br>
         <br></br>
         <br></br>
         <br></br>
         <br></br>
         <br></br>
         <br></br>
-         
+        <br></br>
+
         <Filters />
       </div>
       <div className="main-content">
-        
+
         {/* <div className="divider">
 
         </div> */}
@@ -74,22 +86,22 @@ function JobFeedPage({ setToken }) {
             <div className="scroll-gradient"></div>
 
 
-              <div className="scroll-gradient"></div>
+            <div className="scroll-gradient"></div>
             {
-               jobs.map((x) => <JobItem data={x} key={x.id}/>)
-             }
-
-             <br></br>
-             <br></br>
-             <br></br>
-             <br></br>
-             <br></br>
-             <br></br>
+              jobs.map((x) => <JobItem data={x} key={x.id} select={setSelectedJob} selected={selectedJob == x.id} />)
+            }
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
 
           </div>
 
           <div className="job-details-container col-50">
-            <ReferCandidate />
+            <ReferCandidate job={jobs.find(j => j.id === selectedJob)} setLoading={setLoading}/>
+             
           </div>
 
         </div>
@@ -97,8 +109,9 @@ function JobFeedPage({ setToken }) {
           <h1>+</h1>
         </div>
       </div>
-
+      <Loading isLoading={loading}/>
     </div>
+    
   );
 }
 

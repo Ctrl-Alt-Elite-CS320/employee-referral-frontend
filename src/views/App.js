@@ -15,20 +15,23 @@ Home Page
  */
 
 function App() {
-  const [token, setToken] = useState(sessionStorage.getItem('JWT'));
-  if(token == null) {
-    return <Login setToken={setToken} />
-  }
-  return (
+  const [token, setToken] = useState(localStorage.getItem('JWT'));
+  console.log("token:", token);
+  if (token == null || token == "null") {
+    console.log("Token not found.. ");
+    return <Login setToken={setToken}/>
+  } else {
+    console.log("Token found.. logging in...");
+     return (
     <React.StrictMode>
       <Router>
         <Routes>
-        
           <Route exact path="/" element={<JobFeedPage setToken={setToken}/>}/>
-          {/* <Route path="/login" element={<Login setToken={setToken} />}/> */}
         </Routes>
       </Router>
     </React.StrictMode>);
+  }
+ 
 }
 
 export default App;

@@ -1,12 +1,11 @@
 import "../styles/JobItem.css";
 import React, {useState} from "react"
 
-function JobItem({data}) {
-  const [selected, setSelected] = useState(false);
+function JobItem({data, select, selected}) {
   return (
     <div className={"job-item" + (selected ? " job-item-selected" : "")}
       onClick={() => {
-        setSelected(true);
+        select(data.id);
       }}>
       <h2>{data.title}</h2>
       <p>{data.description}</p>
