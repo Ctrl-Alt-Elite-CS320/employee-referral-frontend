@@ -35,11 +35,7 @@ class ListingForm extends React.Component {
   setTags = (newTags) => {
     this.setState({ tags: newTags });
   };
-  // handleTags = (event) => {
-  //   const string = event.target.value;
-  //   let ans = string.split(",");
-  //   this.setState({ tags: ans });
-  // };
+
   handleSubmit = () => {
     const address = `http://localhost:4000/positions/new`;
     //change address as per our needs
