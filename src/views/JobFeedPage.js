@@ -22,6 +22,7 @@ function JobFeedPage({ setToken}) {
       console.log("GOT ME:");
       console.log(res.status);
       console.log(res.data);
+      setUser(res.data);
     }).catch(err => {
       console.log(err.message);
     })
@@ -67,7 +68,7 @@ function JobFeedPage({ setToken}) {
           <Button onClick={logout}>Logout</Button>
           <button className="circle" onClick={() => { }
             }>
-            JD
+            {user.firstname[0] + user.lastname[0]}
           </button>
         </div>
       </div>
