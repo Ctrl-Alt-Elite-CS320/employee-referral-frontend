@@ -13,26 +13,26 @@ function JobFeedPage({ setToken}) {
   const [jobs, setJobs] = useState([]);
   const [selectedJob, setSelectedJob] = useState(0);
   const [loading, setLoading] = useState(false);
-  const [user, setUser] = useState({});
+  const [user, setUser] = useState({firstname:'',lastname:'', companyid: -1, employeeid: -1, email:''});
 
   useEffect(function () {
     
     axios.defaults.headers.common.Authorization = `Bearer ${localStorage.getItem('JWT')}`;
     axios.get('/users/me').then(res => {
-      console.log("GOT ME:");
-      console.log(res.status);
-      console.log(res.data);
-      setUser(res.data);
-    }).catch(err => {
-      console.log(err.message);
-    })
-    axios.get('/positions/all', { params: { compId: 20021 } }).then(res => {
-      console.log(res.status);
-      if (res.data) {
-        console.log(res.data);
+      if (res.status == 200) {
+        console.log("GOT ME:");
+        setUser(res.data);
+      }
+      return res.data;
+    }).then((u) => {
+      return axios.get('/positions/all', { params: { compId: u.companyid } })
+    }).then(res => {
+      if (res.status == 200) {
         setJobs(res.data);
         setSelectedJob(res.data[0].id);
       }
+    }).catch(err => {
+      console.log(err.message);
     });
   }, []);
   // useEffect(function () {
