@@ -4,13 +4,15 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import Logo from '../components/Logo.js';
 import Filters from '../components/Filters';
+import Loading from '../components/Loading';
 import ReferCandidate from '../components/ReferCandidate';
-import { Button } from "react-bootstrap";
+import { Button, Image} from "react-bootstrap";
 
 import '../styles/ProfileIcon.css';
 function JobFeedPage({ setToken}) {
-  let [jobs, setJobs] = useState([]);
-  let [selectedJob, setSelectedJob] = useState(0);
+  const [jobs, setJobs] = useState([]);
+  const [selectedJob, setSelectedJob] = useState(0);
+  const [loading, setLoading] = useState(false);
   useEffect(function () {
     
     axios.get('/positions/all', { params: { compId: 20021 } }).then(res => {
@@ -88,7 +90,6 @@ function JobFeedPage({ setToken}) {
             {
               jobs.map((x) => <JobItem data={x} key={x.id} select={setSelectedJob} selected={selectedJob == x.id} />)
             }
-
             <br></br>
             <br></br>
             <br></br>
@@ -99,7 +100,8 @@ function JobFeedPage({ setToken}) {
           </div>
 
           <div className="job-details-container col-50">
-            <ReferCandidate job={jobs.find(j=>j.id === selectedJob)}/>
+            <ReferCandidate job={jobs.find(j => j.id === selectedJob)} setLoading={setLoading}/>
+             
           </div>
 
         </div>
@@ -107,8 +109,9 @@ function JobFeedPage({ setToken}) {
           <h1>+</h1>
         </div>
       </div>
-
+      <Loading isLoading={loading}/>
     </div>
+    
   );
 }
 

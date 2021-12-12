@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import '../styles/ReferCandidate.css';
 import axios from 'axios';
 
-const ReferCandidate = ({job})=> {
+const ReferCandidate = ({job, setLoading})=> {
     const [first, setFirst] = useState("");
     const [last, setLast] = useState("");
     const [email, setEmail] = useState("");
@@ -10,6 +10,7 @@ const ReferCandidate = ({job})=> {
     const [message, setMessage] = useState("");
     const handleRefererSubmit = (e) => {
         e.preventDefault();
+        setLoading(true);
 
         // Refer a candidate for selected job here by calling the API
         // console.log(job);
@@ -24,8 +25,15 @@ const ReferCandidate = ({job})=> {
             candidatePhone: phone,
             candidateDescription: message,
         }).then(res => {
-            console.log("NEW POSITION STATUS:");
-            console.log(res.status);
+            if (res.status == 200) {
+                alert("Referral Sent!");
+            } else {
+                alert("There was an error, please try again");
+            }
+        }).catch(err => {
+            alert("Error: " + err.message);
+        }).finally(() => {
+            setLoading(false);
         });
     }
     return (
