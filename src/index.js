@@ -1,34 +1,12 @@
-import React from 'react';
 import ReactDOM from 'react-dom';
 import './styles/index.css';
 import App from './views/App';
-import JobFeedPage from './views/JobFeedPage';
-import NewPosition from './views/NewPosition';
 import reportWebVitals from './reportWebVitals';
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-  Link
-} from "react-router-dom";
+import axios from 'axios';
+axios.defaults.baseURL = "http://localhost:4000";
 
 ReactDOM.render(
-  <React.StrictMode>
-    <Router>
-    <Routes>
-      
-      <Route path="/positions/all">
-        <JobFeedPage />
-      </Route>
-      <Route path="/positions/new">
-        <NewPosition />
-      </Route>
-      <Route path="/">
-        <App />
-      </Route>
-    </Routes>
-    </Router>
-  </React.StrictMode>,
+  <App/>,
   document.getElementById('root')
 );
 
