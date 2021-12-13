@@ -8,14 +8,14 @@ function ReferralItem({data}) {
       onClick={() => {
         setSelected(true);
       }}>
-      <h2>{data.candfirst} {data.candlast}</h2>
+      <h2>{data.candfirstname} {data.candlastname}</h2>
       <p>{data.candphone}</p>
-      <p>{data.applicantcandemail}</p>
+      <p>{data.candemail}</p>
       <br></br>
       <p>{data.canddescription}</p>
       <br></br>
-      <p>Referred by {data.managerfirst} {data.managerlast}</p>
-      <p>{data.manageremail}</p>
+      <p>Referred by {data.firstname} {data.lastname}</p>
+      <p>{data.email}</p>
       <br></br>
       <div className="job-posted-details">
         <div className="profile-button">

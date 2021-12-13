@@ -6,6 +6,7 @@ import Logo from '../components/Logo.js';
 import Filters from '../components/Filters';
 import Loading from '../components/Loading';
 import ReferCandidate from '../components/ReferCandidate';
+import ReferralItem from '../components/ReferralItem';
 import { Button, Image} from "react-bootstrap";
 
 import '../styles/ProfileIcon.css';
@@ -13,6 +14,7 @@ function JobFeedPage({ setToken}) {
   const [jobs, setJobs] = useState([]);
   const [selectedJob, setSelectedJob] = useState(0);
   const [loading, setLoading] = useState(false);
+  const [referrals, setReferrals] = useState([]);
   const [user, setUser] = useState({
     firstname: '',
     lastname: '',
@@ -39,6 +41,11 @@ function JobFeedPage({ setToken}) {
       if (res.status == 200) {
         setJobs(res.data);
         setSelectedJob(res.data[0].id);
+        return axios.get(`/positions/${res.data[0].id}/applications/all`)
+      }
+    }).then(res => {
+      if(res.status == 200){
+        setReferrals(res.data)
       }
     }).catch(err => {
       console.log(err.message);
@@ -53,21 +60,19 @@ function JobFeedPage({ setToken}) {
     setToken(null);
   };
 
-  var isManager = true
-  let rightComponent = <ReferCandidate />
-  if(isManager){
-    let [referrals, setReferrals] = useState([]);
-    useEffect(function () {
-      axios.get('/positions/1/applications/all').then(res => {
-      console.log(res.status);
-      if (res.data) {
-        console.log(res.data);
-        setReferrals(res.data);
-      }
-  
-    });
-    }, []);
-    rightComponent = referrals.map( (x) => <ReferralItem data={x}/>);
+  let rightComponent;
+  if(user.ismanager){
+    rightComponent = (
+      <div>
+        <br></br>
+        <h2 style = {{paddingLeft: 20}}>Referrals for Selected Job</h2>
+        <div>
+          {referrals.map( (x) => <ReferralItem data={x}/>)}
+        </div>
+      </div>
+      );
+  }else{
+    rightComponent = <ReferCandidate job={jobs.find(j => j.id === selectedJob)} setLoading={setLoading}/>
   }
 
 
@@ -126,7 +131,7 @@ function JobFeedPage({ setToken}) {
 
             <div className="scroll-gradient"></div>
             {
-              jobs.map((x) => <JobItem data={x} key={x.id} select={setSelectedJob} selected={selectedJob == x.id} />)
+              jobs.map((x) => <JobItem data={x} key={x.id} select={setSelectedJob} selected={selectedJob == x.id} generate={setReferrals} setLoading={setLoading}/>)
             }
             <br></br>
             <br></br>
@@ -138,7 +143,7 @@ function JobFeedPage({ setToken}) {
           </div>
 
           <div className="job-details-container col-50">
-            <ReferCandidate job={jobs.find(j => j.id === selectedJob)} setLoading={setLoading}/>
+            {rightComponent}
              
           </div>
 
