@@ -1,7 +1,7 @@
 import React from "react";
 import "../styles/ListingForm.css";
-import ReactTagInput from "react-tag-input";
-import "react-tag-input/build/index.css";
+import ReactTagInput from "@pathofdev/react-tag-input";
+import "@pathofdev/react-tag-input/build/index.css";
 const axios = require("axios");
 
 // function App() {
@@ -16,7 +16,7 @@ class ListingForm extends React.Component {
     minYearsExperience: 0,
     description: "",
     tags: [],
-    empId: null,//get these from session information
+    empId: null,
     companyId: null,
   };
   handleChangename = (event) => {
@@ -68,7 +68,7 @@ class ListingForm extends React.Component {
           <br />
           <div className="textbox-container">
             <div className="col-50">
-              <label htmlFor="salary">Yearly Salary:</label>
+              <label for="salary">Yearly Salary:</label>
               <input
                 className="entry-info"
                 id="salary"
@@ -80,7 +80,7 @@ class ListingForm extends React.Component {
               />
             </div>
             <div className="col-50">
-              <label htmlFor="exp">Minimum years of Exp:</label>
+              <label for="exp">Minimum years of Exp:</label>
               <input
                 className="entry-info"
                 id="exp"
@@ -92,6 +92,30 @@ class ListingForm extends React.Component {
               />
             </div>
           </div>
+          <SalarySlider/>
+          <YearSlider/>
+          {/* <div className="slider-container">
+            <div className="col-50">
+              <input
+                className="slider"
+                type="range"
+                min="0"
+                max="50"
+                value="25"
+                id="SalarySlider"
+              />
+            </div>
+            <div className="col-50">
+              <input
+                className="slider"
+                type="range"
+                min="0"
+                max="50"
+                value="25"
+                id="ExpSlider"
+              />
+            </div>
+          </div> */}
           <textarea
             className="paragraph-text"
             placeholder="Job Description"
@@ -110,7 +134,6 @@ class ListingForm extends React.Component {
             className="post-button"
             // type="submit"
             value="Post"
-            readOnly="true"
             onClick={() => this.handleSubmit()}
           />
         </form>
