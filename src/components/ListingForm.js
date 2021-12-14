@@ -2,6 +2,8 @@ import React from "react";
 import "../styles/ListingForm.css";
 import ReactTagInput from "@pathofdev/react-tag-input";
 import "@pathofdev/react-tag-input/build/index.css";
+//import SalarySlider from '../components/SalarySlider.js';
+//import YearSlider from '../components/YearSlider.js';
 const axios = require("axios");
 
 // function App() {
@@ -92,8 +94,8 @@ class ListingForm extends React.Component {
               />
             </div>
           </div>
-          <SalarySlider/>
-          <YearSlider/>
+          {/* <SalarySlider/> */}
+          {/* <YearSlider/> */}
           {/* <div className="slider-container">
             <div className="col-50">
               <input
