@@ -1,32 +1,27 @@
 import "../styles/ReferralItem.css";
 import React, {useState} from "react"
-
+import moment from "moment"
 function ReferralItem({data}) {
-  const [selected, setSelected] = useState(false);
   return (
-    <div className={"job-item" + (selected ? " job-item-selected" : "")}
-      onClick={() => {
-        setSelected(true);
-      }}>
+    <div className={"referral-item"}
+      >
       <h2>{data.candfirstname} {data.candlastname}</h2>
-      <p>{data.candphone}</p>
-      <p>{data.candemail}</p>
+      <p>Phone #:{data.candphone}</p>
+      <p>Email: {data.candemail}</p>
       <br></br>
-      <p>{data.canddescription}</p>
+      <p>"{data.canddescription}"</p>
       <br></br>
-      <p>Referred by {data.firstname} {data.lastname}</p>
-      <p>{data.email}</p>
-      <br></br>
-      <div className="job-posted-details">
+      <div>
         <div className="profile-button">
-          <div className="profile-photo">
+          {/* <div className="profile-photo">
 
             <img></img>
 
-          </div>
+          </div> */}
 
         <div className="owner-info">
-          Referred on {data.datetime}
+            Referred by {data.firstname} {data.lastname} on {moment(data.datetime).format('M/D/YYYY')}  <br></br>
+            ({data.email})
           </div>
           
           

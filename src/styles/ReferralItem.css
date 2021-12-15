@@ -1,4 +1,4 @@
-.job-item {
+.referral-item {
     color: white;
     padding: 20px;
     background-color: #282828;
@@ -8,26 +8,15 @@
     transition-duration: 0.4s;
     border-right: 0px solid rebeccapurple;
   }
-  .job-item h2 {
-    border-left: 5px solid rebeccapurple;
-    padding: 10px;
-    margin-bottom: 10px;
-  }
-  .job-item:hover {
+  .referral-item:hover {
     transform: translateX(10px);
     z-index: 0;
   }
-  .job-item-selected {
+  .referral-item-selected {
     border-right: 20px solid rebeccapurple;
   }
-  .job-item p {
+  .referral-item p {
     color: white;
-  }
-  .job-tags {
-    color: rgb(24, 144, 184);
-    font-weight: bold;
-    font-family: "Nunito-Italic";
-    letter-spacing: 0.02em;
   }
   .profile-photo {
     display: inline-block;
@@ -45,7 +34,7 @@
   .owner-info {
     display: flex;
   }
-  .job-posted-details {
+  .referral-posted-details {
     display: flex;
     align-items: center;
     justify-content: space-between;

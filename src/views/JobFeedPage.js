@@ -21,7 +21,7 @@ function JobFeedPage({ setToken}) {
     companyid: -1,
     employeeid: -1,
     email: '',
-    ismanager: 1,
+    ismanager: 0,
     positiontitle: '',
     startdate: ''});
 
@@ -41,16 +41,23 @@ function JobFeedPage({ setToken}) {
       if (res.status == 200) {
         setJobs(res.data);
         setSelectedJob(res.data[0].id);
-        return axios.get(`/positions/${res.data[0].id}/applications/all`)
-      }
-    }).then(res => {
-      if(res.status == 200){
-        setReferrals(res.data)
       }
     }).catch(err => {
       console.log(err.message);
     });
   }, []);
+  useEffect(function () {
+    if (user.ismanager) {
+      
+      axios.get(`/positions/${selectedJob}/applications/all`).then(res => {
+        if (res.status == 200) {
+          console.log("Got referrals");
+          console.log(res.data);
+          setReferrals(res.data);
+        }
+      })
+    }
+  }, [user, selectedJob]);
   // useEffect(function () {
 
   // }, selectedJob);
@@ -65,9 +72,16 @@ function JobFeedPage({ setToken}) {
     rightComponent = (
       <div>
         <br></br>
-        <h2 style = {{paddingLeft: 20}}>Referrals for Selected Job</h2>
-        <div>
-          {referrals.map( (x) => <ReferralItem data={x}/>)}
+        <h2 style = {{padding: 20, fontSize:30}}>Referrals for Selected Job</h2>
+        <div style={{maxHeight: '84vh',
+    overflowY: 'scroll'}}>
+          {referrals.map((x, i) => <ReferralItem data={x} key={i} />)}
+          <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
         </div>
       </div>
       );

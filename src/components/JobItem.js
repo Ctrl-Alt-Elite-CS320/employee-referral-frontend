@@ -1,7 +1,7 @@
 import "../styles/JobItem.css";
 import React, {useState} from "react"
 import axios from "axios";
-
+import moment from "moment";
 function JobItem({data, select, selected, generate, setLoading}) {
   return (
     <div className={"job-item" + (selected ? " job-item-selected" : "")}
@@ -31,15 +31,15 @@ function JobItem({data, select, selected, generate, setLoading}) {
       <br></br>
       <div className="job-posted-details">
         <div className="profile-button">
-          <div className="profile-photo">
+          {/* <div className="profile-photo">
 
             <img></img>
 
-          </div>
+          </div> */}
 
         <div className="owner-info">
 
-          Posted on {data.dateposted}
+          Posted on {moment(data.dateposted).format('M/D/YYYY')}
           </div>
         </div>
 
