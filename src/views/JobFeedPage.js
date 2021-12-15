@@ -68,11 +68,12 @@ function JobFeedPage({ setToken}) {
   };
 
   let rightComponent;
-  if(user.ismanager){
+  if (user.ismanager) {
     rightComponent = (
-      <div>
+      <div style={{backgroundColor:"#111111"
+  }}>
         <br></br>
-        <h2 style = {{padding: 20, fontSize:30}}>Referrals for Selected Job</h2>
+        <h2 style = {{padding: 20, fontSize:30, color: "#ED2553"}}>Referrals for Selected Job</h2>
         <div style={{maxHeight: '84vh',
     overflowY: 'scroll'}}>
           {referrals.map((x, i) => <ReferralItem data={x} key={i} />)}
@@ -99,7 +100,7 @@ function JobFeedPage({ setToken}) {
         </div>
         <div className="col-200px">
           <h1>Job Feed</h1>
-          <h3>Manager</h3>
+          <h3>{user.ismanager ? "Manager" : "Employee"}</h3>
         </div>
         <div className="col-60 searchHeader">
           <input className="search" type="search" placeholder="Search listings" />
