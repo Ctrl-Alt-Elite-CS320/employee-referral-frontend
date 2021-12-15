@@ -2,12 +2,11 @@ import "../styles/JobItem.css";
 import React, {useState} from "react"
 import axios from "axios";
 
-function JobItem({data, select, selected, generate, setLoading}) {
+function JobItem({data, select, selected, generate}) {
   return (
     <div className={"job-item" + (selected ? " job-item-selected" : "")}
       onClick={() => {
         if(!selected){
-          setLoading(true);
           axios.get(`/positions/${data.id}/applications/all`).then(res => {
               if(res.status == 200){
                   generate(res.data)
@@ -18,8 +17,6 @@ function JobItem({data, select, selected, generate, setLoading}) {
           }).catch((err) => {
               console.log(err);
               generate([]);
-          }).finally(() => {
-              setLoading(false);
           });
         }
         select(data.id);
