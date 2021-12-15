@@ -2,12 +2,8 @@ import "../styles/ReferralItem.css";
 import React, {useState} from "react"
 
 function ReferralItem({data}) {
-  const [selected, setSelected] = useState(false);
   return (
-    <div className={"job-item" + (selected ? " job-item-selected" : "")}
-      onClick={() => {
-        setSelected(true);
-      }}>
+    <div className={"job-item"}>
       <h2>{data.candfirstname} {data.candlastname}</h2>
       <p>{data.candphone}</p>
       <p>{data.candemail}</p>
