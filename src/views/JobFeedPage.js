@@ -6,6 +6,7 @@ import Logo from '../components/Logo.js';
 import Filters from '../components/Filters';
 import Loading from '../components/Loading';
 import ReferCandidate from '../components/ReferCandidate';
+import ReferralItem from '../components/ReferralItem';
 import { Button, Image} from "react-bootstrap";
 
 import '../styles/ProfileIcon.css';
@@ -13,13 +14,14 @@ function JobFeedPage({ setToken}) {
   const [jobs, setJobs] = useState([]);
   const [selectedJob, setSelectedJob] = useState(0);
   const [loading, setLoading] = useState(false);
+  const [referrals, setReferrals] = useState([]);
   const [user, setUser] = useState({
     firstname: '',
     lastname: '',
     companyid: -1,
     employeeid: -1,
     email: '',
-    ismanager: 1,
+    ismanager: 0,
     positiontitle: '',
     startdate: ''});
 
@@ -44,6 +46,18 @@ function JobFeedPage({ setToken}) {
       console.log(err.message);
     });
   }, []);
+  useEffect(function () {
+    if (user.ismanager) {
+      
+      axios.get(`/positions/${selectedJob}/applications/all`).then(res => {
+        if (res.status == 200) {
+          console.log("Got referrals");
+          console.log(res.data);
+          setReferrals(res.data);
+        }
+      })
+    }
+  }, [user, selectedJob]);
   // useEffect(function () {
 
   // }, selectedJob);
@@ -53,15 +67,40 @@ function JobFeedPage({ setToken}) {
     setToken(null);
   };
 
-  return (
-    <div className="JobFeedPage">
-      <div className="feed-header">
-        <div className="col-200px">
+  let rightComponent;
+  if (user.ismanager) {
+    rightComponent = (
+      <div style={{backgroundColor:"#111111"
+  }}>
+        <br></br>
+        <h2 style = {{padding: 20, fontSize:30, color: "#ED2553"}}>Referrals for Selected Job</h2>
+        <div style={{maxHeight: '84vh',
+    overflowY: 'scroll'}}>
+          {referrals.map((x, i) => <ReferralItem data={x} key={i} />)}
+          <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+        </div>
+      </div>
+      );
+  }else{
+    rightComponent = <ReferCandidate job={jobs.find(j => j.id === selectedJob)} setLoading={setLoading}/>
+  }
+
+
+
+   return (
+     <div className="JobFeedPage">
+       <div className="feed-header">
+         <div className="col-200px">
           <Logo />
         </div>
         <div className="col-200px">
           <h1>Job Feed</h1>
-          <h3>Manager</h3>
+          <h3>{user.ismanager ? "Manager" : "Employee"}</h3>
         </div>
         <div className="col-60 searchHeader">
           <input className="search" type="search" placeholder="Search listings" />
@@ -107,7 +146,7 @@ function JobFeedPage({ setToken}) {
 
             <div className="scroll-gradient"></div>
             {
-              jobs.map((x) => <JobItem data={x} key={x.id} select={setSelectedJob} selected={selectedJob == x.id} />)
+              jobs.map((x) => <JobItem data={x} key={x.id} select={setSelectedJob} selected={selectedJob == x.id} generate={setReferrals} setLoading={setLoading}/>)
             }
             <br></br>
             <br></br>
@@ -119,7 +158,7 @@ function JobFeedPage({ setToken}) {
           </div>
 
           <div className="job-details-container col-50">
-            <ReferCandidate job={jobs.find(j => j.id === selectedJob)} setLoading={setLoading}/>
+            {rightComponent}
              
           </div>
 
