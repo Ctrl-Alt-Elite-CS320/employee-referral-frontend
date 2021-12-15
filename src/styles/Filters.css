@@ -7,7 +7,7 @@ h4 {
 }
 
 label {
-    color: #ffffff;
+    color: #000000;
 }
 
 .silder-container {
@@ -18,7 +18,7 @@ label {
     -webkit-appearance: none;
     appearance: none;
     width: 90%;
-    height: 15px;
+    height: 8px;
     background: #ff5c5c;
     border-radius: 15px;
     outline: none;
@@ -53,6 +53,7 @@ label {
     display: block;
     position: relative;
     padding-left: 35px;
+    margin-left: 0.5rem;
     margin-bottom: 12px;
     cursor: pointer;
     font-size: 22px;

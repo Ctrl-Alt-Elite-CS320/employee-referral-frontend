@@ -51,6 +51,7 @@ function Search({ details }) {
                     placeholder="Search Listings"
                     onChange={handleChange}
                 />
+                {/*
                 <form>
                     <select className="list-sort">
                         <option value="all">All Listings</option>
@@ -61,6 +62,8 @@ function Search({ details }) {
             </div>
             <br /><br />
             {searchList()}
+        */}
+            </div>
         </section>
     );
 }

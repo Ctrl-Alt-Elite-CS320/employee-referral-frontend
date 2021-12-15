@@ -1,8 +1,8 @@
 .square {
     background: #ffaaaa;
     border: 1px solid #ffabab;
-    border-radius: 75px;
-    height: 150px;
+    border-radius: 25px;
+    height: 75px;
     width: 250px;
     font-weight: bold;
     font-size: 35px;
