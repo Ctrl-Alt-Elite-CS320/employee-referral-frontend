@@ -26,8 +26,8 @@ function App() {
      return (
     <React.StrictMode>
       <Router>
-           <Routes>
-             <Route exact path="/newlisting" element={<ListingForm/>}/>
+        <Routes>
+          <Route exact path="/newlisting" element={<ListingForm/>}/>
           <Route exact path="/" element={<JobFeedPage setToken={setToken}/>}/>
         </Routes>
       </Router>

@@ -162,8 +162,11 @@ function JobFeedPage({ setToken}) {
              
           </div>
 
-        </div>
-        <div className="add-button">
+         </div>
+         
+         <div className="add-button" onClick={() => {
+           window.location.href += 'newlisting';
+        }}>
           <h1>+</h1>
         </div>
       </div>

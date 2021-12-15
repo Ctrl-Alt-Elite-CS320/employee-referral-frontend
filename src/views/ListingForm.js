@@ -8,16 +8,20 @@ const axios = require("axios");
 //   return <ReactTagInput tags={tags} onChange={(newTags) => setTags(newTags)} />;
 // }
 
-export default class ListingForm extends React.Component {
-  state = {
-    title: "",
-    salary: 0,
-    minYearsExperience: 0,
-    description: "",
-    tags: [],
-    empId: null,//get these from session information
-    companyId: null,
-  };
+class ListingForm extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      title: "",
+      salary: 0,
+      minYearsExperience: 0,
+      description: "",
+      tags: [],
+      empId: null,//get these from session information
+      companyId: null,
+    };
+  }
+  
   handleChangename = (event) => {
     this.setState({ title: event.target.value });
   };
@@ -116,3 +120,5 @@ export default class ListingForm extends React.Component {
     );
   }
 }
+
+export default ListingForm;
