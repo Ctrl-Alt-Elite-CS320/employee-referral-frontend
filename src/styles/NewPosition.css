@@ -3,28 +3,39 @@
     flex-direction: column;
     width: 100vw;
     height: 100vh;
-    background-color: white;
-    overflow-y: scroll;
-}
-
-.main-content {
-    flex: 1;
+    background-color: #191919;
 }
 
 .position-header {
     height: 5rem;
-    background: #cccccc;
+    width: 100%;
+    background: #000000;
     display: flex;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
     align-items: center;
-    padding-left: 50px;
+    padding-left: 2rem;
+    border-bottom: 2px solid #ed2553;
 }
 
 .position-header h1 {
-    font-size: 40px;
+    font-size: 2.5rem;
+    padding-left: 3rem;
+    color: #ed2553;
 }
 
-.feed-header h3 {
-    font-size: 20px;
+.position-header h3 {
+    font-size: 1.25rem;
+    padding-left: 3rem;
+    color: #ffffff;
+}
+
+.listing-form {
+    position: relative;
+    margin-left: 25%;
+    height: 100%;
+    overflow-y: scroll;
 }
 
 .col-80 {
@@ -37,4 +48,45 @@
     width: 20%;
     position: relative;
     min-width: 200px;
+}
+
+.return-button {
+    position: absolute;
+    bottom: 40px;
+    background-color: #191919;
+    width: 7.3rem;
+    height: 2.5rem;
+    right: 40px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.return-button:hover {
+    background-color: #ed2553;
+}
+
+.return-button h1 {
+    color: white;
+    position: absolute;
+    font-size: 2rem;
+    letter-spacing: 0.05em;
+    left: 10%;
+    top: -10%;
+}
+
+::-webkit-scrollbar {
+    width: 7px;
+}
+
+::-webkit-scrollbar-track {
+    background: #000000;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #666666;
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #7e7e7e;
 }

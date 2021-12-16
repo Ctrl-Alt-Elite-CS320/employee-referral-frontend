@@ -14,7 +14,8 @@
 }
 
 .refer-header h1 {
-  font-size: 40px;
+  font-size: 2.5rem;
+  color: #ffffff;
 }
 
 .refer-header h2 {
@@ -23,25 +24,40 @@
 }
 
 .info-text {
-  width: 60%;
+  width: 100%;
   padding: 12px 20px;
-  /* margin: 8px 0; */
-  /* border: 1px solid #999999; */
-  border-radius: 6px;
-  box-sizing: border-box;
+  margin-right: 1rem;
+    background: #393939;
+    border: none;
+    border-radius: 6px;
+    box-sizing: border-box;
+    color: #ffffff;
 }
+
+.info-text:focus {
+  border: 3px solid #ed2553;
+}
+
 .name-input {
-  width: 40%;
+  width: 50%;
   border-radius: 6px;
   padding: 12px 20px;
+  margin-right: 1rem;
+  background: #393939;
+  border: none;
+  border-radius: 6px;
   box-sizing: border-box;
-  margin-right: 10px;
+  color: #ffffff;
+}
+
+.name-input:focus {
+  border: 3px solid #ed2553;
 }
 
 .paragraph-text {
   width: 80%;
   padding: 12px 20px;
-  margin: 8px 0;
+  margin-right: 1rem;
   /* border: 1px solid #999999; */
   border-radius: 6px;
   box-sizing: border-box;
@@ -49,18 +65,18 @@
 }
 
 .submit-button {
-  width: 80%;
-  background: #384e83;
+  width: 100%;
+  margin-right: 1rem;
+  background: #ed2553;
   color: #ffffff;
   padding: 14px 20px;
   margin: 8px 0;
   border: none;
   border-radius: 6px;
   cursor: pointer;
-  opacity: 0.8;
   font-size: 20px;
 }
 
 .submit-button:hover {
-  opacity: 1;
+  background: #ce1f48;
 }

@@ -3,6 +3,8 @@ import "../styles/ListingForm.css";
 import ReactTagInput from "@pathofdev/react-tag-input";
 import "@pathofdev/react-tag-input/build/index.css";
 import Loading from "./Loading.js";
+import { Link } from "react-router-dom";
+
 const axios = require("axios");
 
 // function App() {
@@ -13,7 +15,7 @@ const axios = require("axios");
 class ListingForm extends React.Component {
   constructor(props) {
     super(props);
-    
+
     axios.defaults.headers.common.Authorization = `Bearer ${localStorage.getItem('JWT')}`;
     this.state = {
       loading: false,
@@ -24,7 +26,7 @@ class ListingForm extends React.Component {
       tags: [],
     };
   }
-  
+
   handleChangename = (event) => {
     this.setState({ title: event.target.value });
   };
@@ -50,7 +52,7 @@ class ListingForm extends React.Component {
     e.preventDefault();
     //change address as per our needs
     try {
-      this.setState({loading:true});
+      this.setState({ loading: true });
       console.log(this.state);
       axios.post('/positions/new', this.state).then(function (response) {
 
@@ -59,22 +61,23 @@ class ListingForm extends React.Component {
         if (response.status == 200 && response.data) {
           window.location.href = window.location.href.split("/").slice(0, -1).join("/");
         }
-        
-        this.setState({loading:false});
+
+        this.setState({ loading: false });
       });
     } catch (error) {
       alert(error);
       console.log(error);
-      
-      this.setState({loading:false});
+
+      this.setState({ loading: false });
     }
   };
 
   render() {
     return (
       <div className="listing">
-        <Loading isLoading={this.state.loading}/>
+        <Loading isLoading={this.state.loading} />
         <form>
+          <h2>New Job Listing</h2>
           <input
             className="job-text"
             type="text"
@@ -110,20 +113,26 @@ class ListingForm extends React.Component {
               />
             </div>
           </div>
+          <h2>Job Description</h2>
           <textarea
             className="paragraph-text"
             placeholder="Job Description"
             cols="30"
             rows="10"
-            maxLength="500"
+            maxLength="5000"
             onChange={this.handleDesc}
           />
+
           <br />
+
+          <h2>Tags</h2>
           <ReactTagInput
             tags={this.state.tags}
             onChange={(newTags) => this.setTags(newTags)}
           />
+
           <br />
+
           <input
             className="post-button"
             // type="submit"
