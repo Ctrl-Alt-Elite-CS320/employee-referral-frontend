@@ -1,6 +1,8 @@
 import React from "react";
 import "../styles/ListingForm.css";
-import ReactTagInput from "react-tag-input";
+import ReactTagInput from "@pathofdev/react-tag-input";
+import "@pathofdev/react-tag-input/build/index.css";
+import Loading from "./Loading.js";
 const axios = require("axios");
 
 // function App() {
@@ -11,14 +13,15 @@ const axios = require("axios");
 class ListingForm extends React.Component {
   constructor(props) {
     super(props);
+    
+    axios.defaults.headers.common.Authorization = `Bearer ${localStorage.getItem('JWT')}`;
     this.state = {
+      loading: false,
       title: "",
       salary: 0,
       minYearsExperience: 0,
       description: "",
       tags: [],
-      empId: null,//get these from session information
-      companyId: null,
     };
   }
   
@@ -47,17 +50,30 @@ class ListingForm extends React.Component {
     e.preventDefault();
     //change address as per our needs
     try {
+      this.setState({loading:true});
+      console.log(this.state);
       axios.post('/positions/new', this.state).then(function (response) {
+
         console.log(response);
+        console.log(response.data);
+        if (response.status == 200 && response.data) {
+          window.location.href = window.location.href.split("/").slice(0, -1).join("/");
+        }
+        
+        this.setState({loading:false});
       });
     } catch (error) {
+      alert(error);
       console.log(error);
+      
+      this.setState({loading:false});
     }
   };
 
   render() {
     return (
       <div className="listing">
+        <Loading isLoading={this.state.loading}/>
         <form>
           <input
             className="job-text"
@@ -113,7 +129,7 @@ class ListingForm extends React.Component {
             // type="submit"
             value="Post"
             readOnly="true"
-            onClick={() => this.handleSubmit()}
+            onClick={this.handleSubmit}
           />
         </form>
       </div>

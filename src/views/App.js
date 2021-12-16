@@ -1,6 +1,6 @@
 import Login from '../views/Login';
 import JobFeedPage from '../views/JobFeedPage';
-import ListingForm from '../views/ListingForm';
+import NewPosition from '../views/NewPosition';
 import React from 'react';
 
 import {
@@ -27,7 +27,7 @@ function App() {
     <React.StrictMode>
       <Router>
         <Routes>
-          <Route exact path="/newlisting" element={<ListingForm/>}/>
+          <Route exact path="/newlisting" element={<NewPosition/>}/>
           <Route exact path="/" element={<JobFeedPage setToken={setToken}/>}/>
         </Routes>
       </Router>

@@ -146,7 +146,7 @@ function JobFeedPage({ setToken}) {
 
             <div className="scroll-gradient"></div>
             {
-              jobs.map((x) => <JobItem data={x} key={x.id} select={setSelectedJob} selected={selectedJob == x.id} generate={setReferrals} setLoading={setLoading}/>)
+               jobs.map((x) => <JobItem data={x} key={x.id} select={setSelectedJob} selected={selectedJob == x.id} generate={setReferrals} setLoading={setLoading} />)
             }
             <br></br>
             <br></br>
