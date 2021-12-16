@@ -94,30 +94,6 @@ class ListingForm extends React.Component {
               />
             </div>
           </div>
-          <SalarySlider/>
-          <YearSlider/> 
-          {/* <div className="slider-container">
-            <div className="col-50">
-              <input
-                className="slider"
-                type="range"
-                min="0"
-                max="50"
-                value="25"
-                id="SalarySlider"
-              />
-            </div>
-            <div className="col-50">
-              <input
-                className="slider"
-                type="range"
-                min="0"
-                max="50"
-                value="25"
-                id="ExpSlider"
-              />
-            </div>
-          </div> */}
           <textarea
             className="paragraph-text"
             placeholder="Job Description"
