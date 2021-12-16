@@ -15,6 +15,7 @@ function JobFeedPage({ setToken}) {
   const [selectedJob, setSelectedJob] = useState(0);
   const [loading, setLoading] = useState(false);
   const [referrals, setReferrals] = useState([]);
+  const [searchVal, setSearchVal] = useState("");
   const [user, setUser] = useState({
     firstname: '',
     lastname: '',
@@ -90,6 +91,9 @@ function JobFeedPage({ setToken}) {
     rightComponent = <ReferCandidate job={jobs.find(j => j.id === selectedJob)} setLoading={setLoading}/>
   }
 
+  function handleSearch(e){
+    setSearchVal(e.target.value)
+  }
 
 
    return (
@@ -103,7 +107,9 @@ function JobFeedPage({ setToken}) {
           <h3>{user.ismanager ? "Manager" : "Employee"}</h3>
         </div>
         <div className="col-60 searchHeader">
-          <input className="search" type="search" placeholder="Search listings" />
+          <input className="search" type="search" placeholder="Search listings" onChange = {
+            handleSearch
+          }/>
           <form>
             <select className="list-sort">
               <option value="all">All Listings</option>
@@ -146,7 +152,8 @@ function JobFeedPage({ setToken}) {
 
             <div className="scroll-gradient"></div>
             {
-               jobs.map((x) => <JobItem data={x} key={x.id} select={setSelectedJob} selected={selectedJob == x.id} generate={setReferrals} setLoading={setLoading} />)
+              jobs.filter((job) => job.title.toLowerCase().includes(searchVal) || job.description.toLowerCase().includes(searchVal))
+              .map((x) => <JobItem data={x} key={x.id} select={setSelectedJob} selected={selectedJob == x.id} generate={setReferrals} setLoading={setLoading}/>)
             }
             <br></br>
             <br></br>

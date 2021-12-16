@@ -3,7 +3,7 @@ import './styles/index.css';
 import App from './views/App';
 import reportWebVitals from './reportWebVitals';
 import axios from 'axios';
-axios.defaults.baseURL = "http://localhost:4000";
+axios.defaults.baseURL = "http://45.77.153.120:4000";
 
 ReactDOM.render(
   <App/>,
