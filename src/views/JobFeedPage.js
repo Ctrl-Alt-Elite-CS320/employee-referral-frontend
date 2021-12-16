@@ -8,6 +8,9 @@ import Loading from '../components/Loading';
 import ReferCandidate from '../components/ReferCandidate';
 import ReferralItem from '../components/ReferralItem';
 import { Button, Image} from "react-bootstrap";
+import Search from "../components/search/Search";
+import jobListings from '../components/search/jobListings';
+import { Link } from "react-router-dom";
 
 import '../styles/ProfileIcon.css';
 function JobFeedPage({ setToken}) {
@@ -103,7 +106,6 @@ function JobFeedPage({ setToken}) {
           <h3>{user.ismanager ? "Manager" : "Employee"}</h3>
         </div>
         <div className="col-60 searchHeader">
-          <input className="search" type="search" placeholder="Search listings" />
           <form>
             <select className="list-sort">
               <option value="all">All Listings</option>
@@ -138,22 +140,7 @@ function JobFeedPage({ setToken}) {
         </div> */}
         <div className="feed-container">
           <div className="jobs-list col-50">
-
-            <br /><br />
-
-            <div className="scroll-gradient"></div>
-
-
-            <div className="scroll-gradient"></div>
-            {
-              jobs.map((x) => <JobItem data={x} key={x.id} select={setSelectedJob} selected={selectedJob == x.id} generate={setReferrals} setLoading={setLoading}/>)
-            }
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br>
+            <Search details={jobListings} />
 
           </div>
 
@@ -163,9 +150,11 @@ function JobFeedPage({ setToken}) {
           </div>
 
         </div>
-        <div className="add-button">
-          <h1>+</h1>
-        </div>
+        <Link to="/newposition">
+          <div className="add-button">
+            <h1>+</h1>
+          </div>
+        </Link>
       </div>
       <Loading isLoading={loading}/>
     </div>
