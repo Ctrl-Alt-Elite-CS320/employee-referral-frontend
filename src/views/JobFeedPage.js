@@ -7,17 +7,19 @@ import Filters from '../components/Filters';
 import ReferCandidate from '../components/ReferCandidate';
 import ProfileIcon from '../components/ProfileIcon';
 import { Button } from "react-bootstrap";
+import { Link } from "react-router-dom";
+
 function JobFeedPage({ setToken }) {
   let [jobs, setJobs] = useState([]);
   useEffect(function () {
     axios.get('/positions/all', { params: { compId: 20021 } }).then(res => {
-    console.log(res.status);
-    if (res.data) {
-      console.log(res.data);
-      setJobs(res.data);
-    }
+      console.log(res.status);
+      if (res.data) {
+        console.log(res.data);
+        setJobs(res.data);
+      }
 
-  });
+    });
   }, []);
   const logout = () => {
     sessionStorage.setItem('JWT', null);
@@ -25,12 +27,12 @@ function JobFeedPage({ setToken }) {
     setToken(null);
   };
 
-   return (
-     <div className="JobFeedPage">
-       <div className="feed-header">
-         <div className="col-200px">
+  return (
+    <div className="JobFeedPage">
+      <div className="feed-header">
+        <div className="col-200px">
           <Logo />
-         </div>
+        </div>
         <div className="col-200px">
           <h1>Job Feed</h1>
           <h3>Manager</h3>
@@ -45,39 +47,30 @@ function JobFeedPage({ setToken }) {
             </select>
           </form>
         </div>
-         <div className="col-20">
-           <Button onClick={logout}>Logout</Button>
-          <ProfileIcon setToken={setToken}/>
+        <div className="col-20">
+          <Button onClick={logout}>Logout</Button>
+          <ProfileIcon setToken={setToken} />
         </div>
       </div>
       <div className="filter-container">
-         
+
         <Filters />
       </div>
       <div className="main-content">
-        
-        {/* <div className="divider">
-
-        </div> */}
         <div className="feed-container">
           <div className="jobs-list col-50">
 
             <br /><br />
-
-            <div className="scroll-gradient"></div>
-
-
-              <div className="scroll-gradient"></div>
             {
-               jobs.map((x) => <JobItem data={x} key={x.id}/>)
-             }
+              jobs.map((x) => <JobItem data={x} key={x.id} />)
+            }
 
-             <br></br>
-             <br></br>
-             <br></br>
-             <br></br>
-             <br></br>
-             <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
 
           </div>
 
@@ -86,9 +79,13 @@ function JobFeedPage({ setToken }) {
           </div>
 
         </div>
-        <div className="add-button">
-          <h1>+</h1>
-        </div>
+
+        <Link to="/newposition">
+          <div className="add-button">
+            <h1>+</h1>
+          </div>
+        </Link>
+
       </div>
 
     </div>

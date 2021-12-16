@@ -30,7 +30,7 @@
 .feed-header {
   height: 5rem;
   width: 100%;
-  background-color: #cccccc;
+  background-color: #191919;
   display: flex;
   position: fixed;
   z-index: 1;
@@ -40,7 +40,14 @@
 }
 .feed-header h1 {
   font-size: 40px;
+  padding-top: 0.2rem;
 }
+
+.feed-header h3 {
+  color: #ffffff;
+  padding-bottom: 0.5rem;
+}
+
 .feed-container {
   position: relative;
 
@@ -141,7 +148,7 @@ h3 {
 input[type="text"],
 input[type="search"],
 textarea {
-  background: #0c0c0c;
+  background: #ffffff;
   border: none;
 
   border-bottom: 1px solid #999999;
