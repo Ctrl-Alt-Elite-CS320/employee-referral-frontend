@@ -6,11 +6,8 @@ import ListingForm from "../components/ListingForm";
 function NewPosition() {
   return (
     <div className="NewPosition">
-      <div className="logo-alignment">
-        <Logo />
-      </div>
-      <div className="main-content">
         <div className="position-header">
+          <Logo />
           <div className="col-80">
             <h1>New Listing</h1>
             <h3>Manager</h3>
@@ -19,11 +16,9 @@ function NewPosition() {
             <ProfileIcon />
           </div>
         </div>
-        <div className="divider"></div>
         <div className="listing-form">
           <ListingForm />
         </div>
-      </div>
     </div>
   );
 }

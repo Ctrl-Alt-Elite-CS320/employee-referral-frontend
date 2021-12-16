@@ -51,13 +51,6 @@ function JobFeedPage({ setToken }) {
         </div>
       </div>
       <div className="filter-container">
-         <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
          
         <Filters />
       </div>
